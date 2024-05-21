@@ -33,9 +33,14 @@ export default function NewsFeed() {
                 className="flex flex-row rounded-md h-36 bg-slate-50 gap-4"
               >
                 <img
-                  src={news.multimedia[0].url}
+                  src={
+                    news.multimedia &&
+                    news.multimedia[0] &&
+                    news.multimedia[0].url
+                  }
                   className="rounded-md w-1/2"
                 />
+
                 <p className="font-bold">{news.title}</p>
               </article>
             );
