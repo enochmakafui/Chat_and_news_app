@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors:{
-        newsBackground:"#F8F7F4",
+        newsBackground:"#F8F8F8",
         newsTextColor:"#2E3E5F"
       }
     },

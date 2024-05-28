@@ -36,7 +36,7 @@ export default function NewsFeed() {
             return (
               <article
                 key={news.title}
-                className="flex flex-row rounded-md h-auto  gap-4"
+                className="flex flex-row rounded-md h-auto  gap-4 bg-white p-3"
               >
                 {news.urlToImage ? (
                   <img
