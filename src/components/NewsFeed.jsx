@@ -22,7 +22,9 @@ export default function NewsFeed() {
 
   return (
     <div className="p-2">
-      <h2 className="text-2xl font-bold mb-2">Top Stories</h2>
+      <h2 className=" inline-block text-xl  mb-2 bg-slate-400 rounded-md p-2">
+        Top Stories
+      </h2>
 
       {newsData.length === 0 && <p>fetching news data....</p>}
       {!newsData && <p>Could not fetch news</p>}
@@ -32,7 +34,7 @@ export default function NewsFeed() {
             return (
               <article
                 key={news.title}
-                className="flex flex-row rounded-md h-36 bg-slate-50 gap-4"
+                className="flex flex-row rounded-md h-36 bg-slate-400 gap-4"
               >
                 <img
                   src={
