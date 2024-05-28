@@ -6,7 +6,7 @@ export default function NewsFeed() {
     async function fetchNews() {
       try {
         const response = await fetch(
-          "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=155PLcrJwPAoWcwadRVEHGLA2uHztAnx"
+          "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=155PLcrJwPAoWcwadRVEHGLA2uHztAnx",
         );
         if (!response.ok) {
           throw new Error("Could not fetch news ");
@@ -21,7 +21,9 @@ export default function NewsFeed() {
   }, []);
 
   return (
-    <>
+    <div className="p-2">
+      <h2 className="text-2xl font-bold mb-2">Top Stories</h2>
+
       {newsData.length === 0 && <p>fetching news data....</p>}
       {!newsData && <p>Could not fetch news</p>}
       <div className="flex flex-row gap-4 flex-wrap h-full ">
@@ -46,6 +48,6 @@ export default function NewsFeed() {
             );
           })}
       </div>
-    </>
+    </div>
   );
 }

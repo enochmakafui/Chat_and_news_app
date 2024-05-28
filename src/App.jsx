@@ -1,12 +1,27 @@
-import NewsFeed from "./components/NewsFeed";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NewsPage from "./Pages/NewsPage";
+import ChatPage from "./Pages/ChatPage";
+import RootLayout from "./Layouts/RootLayout";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      {
+        path: "/",
+        element: <NewsPage />,
+      },
+      {
+        path: "/chat",
+        element: <ChatPage />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <div className="p-2">
-      <h2 className="text-2xl font-bold mb-2">Top Stories</h2>
-      <NewsFeed />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
