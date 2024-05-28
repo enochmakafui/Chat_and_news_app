@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import placeholderImage from "../assets/placeholder.jpg";
 export default function NewsFeed() {
   const [newsData, setNewsData] = useState([]);
 
@@ -6,19 +7,20 @@ export default function NewsFeed() {
     async function fetchNews() {
       try {
         const response = await fetch(
-          "https://api.nytimes.com/svc/topstories/v2/world.json?api-key=155PLcrJwPAoWcwadRVEHGLA2uHztAnx",
+          "https://newsapi.org/v2/everything?q=apple&from=2024-05-27&to=2024-05-27&sortBy=popularity&apiKey=469cf9023ca343f49c0a6532cebf6017"
         );
         if (!response.ok) {
           throw new Error("Could not fetch news ");
         }
         const data = await response.json();
-        setNewsData(data.results);
+        setNewsData(data.articles);
       } catch (error) {
         console.error(error.message);
       }
     }
     fetchNews();
   }, []);
+  console.log(newsData);
 
   return (
     <div className="p-2">
@@ -34,20 +36,28 @@ export default function NewsFeed() {
             return (
               <article
                 key={news.title}
-                className="flex flex-row rounded-md h-auto bg-slate-200 gap-4"
+                className="flex flex-row rounded-md h-auto  gap-4"
               >
-                <img
-                  src={
-                    news.multimedia &&
-                    news.multimedia[0] &&
-                    news.multimedia[0].url
-                  }
-                  className=" rounded-tl-md rounded-bl-md w-1/2"
-                />
-
-                <p className="truncate-3-lines w-1/2 sm:w-auto md:w-auto">
-                  {news.title}
-                </p>
+                {news.urlToImage ? (
+                  <img
+                    src={news.urlToImage}
+                    className="rounded-md w-1/2"
+                    alt="Image not available"
+                  />
+                ) : (
+                  <img
+                    src={placeholderImage}
+                    className="rounded-md w-1/2"
+                    alt="placeholder image"
+                  />
+                )}
+                <div>
+                  {" "}
+                  <p className="inline-block bg-slate-400 rounded-md p-1 font-bold text-xs">
+                    {news.source.name}
+                  </p>
+                  <p className=" font-bold text-newsTextColor">{news.title}</p>
+                </div>
               </article>
             );
           })}
