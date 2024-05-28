@@ -7,7 +7,7 @@ export default function NewsFeed() {
     async function fetchNews() {
       try {
         const response = await fetch(
-          "https://newsapi.org/v2/everything?q=apple&from=2024-05-27&to=2024-05-27&sortBy=popularity&apiKey=469cf9023ca343f49c0a6532cebf6017"
+          "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=469cf9023ca343f49c0a6532cebf6017"
         );
         if (!response.ok) {
           throw new Error("Could not fetch news ");
