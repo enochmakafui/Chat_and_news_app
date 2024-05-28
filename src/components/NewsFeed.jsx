@@ -34,7 +34,7 @@ export default function NewsFeed() {
             return (
               <article
                 key={news.title}
-                className="flex flex-row rounded-md h-36 bg-slate-200 gap-4"
+                className="flex flex-row rounded-md h-auto bg-slate-200 gap-4"
               >
                 <img
                   src={
@@ -45,7 +45,9 @@ export default function NewsFeed() {
                   className=" rounded-tl-md rounded-bl-md w-1/2"
                 />
 
-                <p className="font-bold truncate-5-lines">{news.title}</p>
+                <p className="truncate-3-lines w-1/2 sm:w-auto md:w-auto">
+                  {news.title}
+                </p>
               </article>
             );
           })}
