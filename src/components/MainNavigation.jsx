@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const MainNavigation = () => {
   return (
-    <div className="bg-slate-800 pt-4 pb-1">
+    <div className="bg-slate-800 pt-4 pb-1 fixed top-0 z-10 w-full">
       <ul className="flex w-full justify-evenly">
         <li>
           <NavLink

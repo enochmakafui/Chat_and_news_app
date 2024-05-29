@@ -18,15 +18,20 @@ const router = createBrowserRouter([
         element: <ChatPage />,
       },
       {
-        path:"/:id",
-        element:<NewsContent />
-      }
+        path: "/:title",
+        element: <NewsContent />,
+      },
     ],
   },
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      {" "}
+      <RouterProvider router={router} />{" "}
+    </>
+  );
 }
 
 export default App;
